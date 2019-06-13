@@ -1,0 +1,11 @@
+%header
+  .header__title
+    VARIOUS SCERRNSHOTS
+%main
+  .screenshots-index
+    .main-wrapper
+      .main-wrapper__description
+        スクリーンショットが作成できます。chromeのみ対応
+      =form_tag(shot_screenshots_path,method: :get) do
+        %textarea(cols="30" rows="10" placeholder="URLを貼り付けてください。複数の場合は改行で認識します。" type="text" name="url" class="form__textarea")
+        %input(type="submit" value="screen shots!!" class="form__submit")

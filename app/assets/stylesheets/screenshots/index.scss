@@ -1,0 +1,25 @@
+.header{
+  &__title{
+    font-family: 'Concert One', Cousive;
+    font-size: 30px;
+    width: 100%;
+    line-height: 50px;
+    margin: 30px;
+  }
+}
+.screenshots-index{
+  margin: 0 50px 50px;
+  .main-wrapper{
+    &__description{
+      margin: 10px 0;
+    }
+    .form{
+      &__textarea{
+        width:100%;
+      }
+      &__submit{
+
+      }
+    }
+  }
+}
