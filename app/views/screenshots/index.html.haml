@@ -8,4 +8,27 @@
         スクリーンショットが作成できます。chromeのみ対応
       =form_tag(shot_screenshots_path,method: :get) do
         %textarea(cols="30" rows="10" placeholder="URLを貼り付けてください。複数の場合は改行で認識します。" type="text" name="url" class="form__textarea")
+        .main-wrapper__output__window
+          Window Size
+          %input{name:"width", type:"text", placeholder:"width"}
+          %input{name:"height", type:"text", placeholder:"height"}
+          FullSize
+          %input{name:"fullsize", type:"checkbox"}
+        .main-wrapper__output__ragtime
+          撮影までの待ち時間
+          %input{name:"ragtime", type:"text", value:0}
+        .main-wrapper__output__agent#aaa
+          User Agent
+          %input{name: "agent", type: "radio", value: "pc", checked:"checked"}
+            PC
+          %input{name: "agent", type: "radio", value: "iphone"}
+            iPhone
+          %input{name: "agent", type: "radio", value: "android_phone"}
+            Android
+        .main-wrapper__output__name
+          ファイル名
+          %input{name: "name", type: "radio", value: "number", checked:"checked"}
+            連番
+          %input{name: "name", type: "radio", value: "url"}
+            URL名
         %input(type="submit" value="screen shots!!" class="form__submit")
