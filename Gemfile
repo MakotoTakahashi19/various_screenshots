@@ -68,3 +68,4 @@ gem 'haml-rails'
 gem "webdrivers", "~> 3.0"
 gem 'webdriver-user-agent'
 gem 'rmagick'
+gem 'rubyzip'

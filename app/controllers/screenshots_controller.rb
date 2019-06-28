@@ -10,6 +10,7 @@ class ScreenshotsController < ApplicationController
       require 'selenium-webdriver'
       require 'webdriver-user-agent'
       require 'rmagick'
+
       # UserAgent選択
       case params[:agent]
       when "pc" then
@@ -25,7 +26,10 @@ class ScreenshotsController < ApplicationController
         :agent       => :android_phone,
         :orientation => :portrait)
       end
+
       count = 1
+      filenames = []
+
       urls = params[:url].rstrip.split(/\r?\n/).map {|line| line.chomp }
       urls.each do |url|
         # 指定のウィンドウサイズに変更
@@ -72,20 +76,29 @@ class ScreenshotsController < ApplicationController
             last_image = image.crop(Magick::SouthWestGravity, inner_w*2, dupl_h*2)
             last_image.write(tmp_fnames.last)
           end
-          #4. ImageMagickを使って全ての画像を結合
+          #ImageMagickを使って全ての画像を結合
           `convert -append #{tmp_fnames.join(' ')} #{tmp_basename}.jpg`
-
           File.unlink *tmp_fnames
         else
           #1つの場合は一時ファイルをリネームするだけ
           File.rename(tmp_fnames[0],"#{tmp_basename}.jpg")
         end
+        filenames << "#{tmp_basename}.jpg"
+
       end
       driver.quit
-      # zipファイルへ変換
-      # ダウンロード機能の追加
-      # send_file("#{tmp_basename}.jpg")
-      redirect_to root_path
+
+      #zipに圧縮
+      zip_filename = "screenshots.zip"
+      Zip::OutputStream.open(zip_filename) do |out|
+        filenames.each do |filename|
+        out.put_next_entry(filename)
+        buffer = File.read(filename)
+        out.write(buffer)
+        end
+      end
+      #送信
+      send_file("screenshots.zip")
     end
   end
 end
