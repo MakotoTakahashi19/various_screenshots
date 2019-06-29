@@ -33,7 +33,7 @@ class ScreenshotsController < ApplicationController
       count = 1
       filenames = []
 
-      urls = params[:url].rstrip.split(/\n/).map {|line| line.chomp }
+      urls = params[:url].split(/\n/).map {|line| line.chomp }
       urls.each do |url|
         # 指定のウィンドウサイズに変更
         if params[:fullsize] == "on"
@@ -102,7 +102,7 @@ class ScreenshotsController < ApplicationController
       end
       #送信
       send_file("screenshots.zip")
-      redirect_to root_path
     end
+    redirect_to root_path
   end
 end
