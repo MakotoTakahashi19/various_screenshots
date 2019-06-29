@@ -103,6 +103,5 @@ class ScreenshotsController < ApplicationController
       #送信
       send_file("screenshots.zip")
     end
-    redirect_to root_path
   end
 end
