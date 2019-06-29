@@ -14,7 +14,7 @@ class ScreenshotsController < ApplicationController
       # UserAgent選択
       case params[:agent]
       when "pc" then
-        driver = Selenium::WebDriver.for :chrome, :options => options
+        driver = Selenium::WebDriver.for :chrome
       when "iphone" then
         driver = Webdriver::UserAgent.driver(
         :browser     => :chrome,
