@@ -47,8 +47,13 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+# production:
+#   <<: *default
+#   database: various_screenshots_production
+#   username: various_screenshots
+#   password: <%= ENV['VARIOUS_SCREENSHOTS_DATABASE_PASSWORD'] %>
 production:
   <<: *default
-  database: various_screenshots_production
-  username: various_screenshots
-  password: <%= ENV['VARIOUS_SCREENSHOTS_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
