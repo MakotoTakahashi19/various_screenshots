@@ -30,7 +30,7 @@ class ScreenshotsController < ApplicationController
       count = 1
       filenames = []
 
-      urls = params[:url].rstrip.split(/\r?\n/).map {|line| line.chomp }
+      urls = params[:url].rstrip.split(/\n/).map {|line| line.chomp }
       urls.each do |url|
         # 指定のウィンドウサイズに変更
         if params[:fullsize] == "on"
