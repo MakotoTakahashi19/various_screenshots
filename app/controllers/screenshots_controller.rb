@@ -17,7 +17,8 @@ class ScreenshotsController < ApplicationController
       # UserAgent選択
       case params[:agent]
       when "pc" then
-        driver = Selenium::WebDriver.for :chrome
+        caps = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {binary: "/app/.apt/usr/bin/google-chrome", args: ["--headless"]})
+        driver = Selenium::WebDriver.for :chrome, desired_capabilities: caps
       when "iphone" then
         driver = Webdriver::UserAgent.driver(
         :browser     => :chrome,
@@ -33,7 +34,7 @@ class ScreenshotsController < ApplicationController
       count = 1
       filenames = []
 
-      urls = params[:url].split(/\n/).map {|line| line.chomp }
+      urls = params[:url].rstrip.split(/\n/).map {|line| line.chomp }
       urls.each do |url|
         # 指定のウィンドウサイズに変更
         if params[:fullsize] == "on"
