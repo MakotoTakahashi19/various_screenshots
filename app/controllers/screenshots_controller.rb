@@ -2,6 +2,9 @@ class ScreenshotsController < ApplicationController
   def index
   end
 
+  def testpage
+  end
+
   def shot
     if params[:url] == ""
       redirect_to root_path

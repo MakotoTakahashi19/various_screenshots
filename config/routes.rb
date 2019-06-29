@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resource :screenshots do
     member do
       get 'shot'
+      get 'testpage'
     end
   end
 end
