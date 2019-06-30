@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: various_screenshots_production
-  username: various_screenshots
-  password: <%= ENV['VARIOUS_SCREENSHOTS_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
