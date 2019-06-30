@@ -9,7 +9,8 @@
       .main-wrapper__description
         スクリーンショットが作成できます。chromeのみ対応
       =form_tag(shot_screenshots_path,method: :get) do
-        %textarea(cols="30" rows="10" placeholder="URLを貼り付けてください。複数の場合は改行で認識します。" type="text" name="url" class="form__textarea")
+        %textarea(cols="30" rows="13" placeholder="URLを貼り付けてください。複数の場合は改行で認識します。" type="text" name="url" class="form__textarea")
+
         .main-wrapper__output__window
           Window Size
           %input{name:"width", type:"text", placeholder:"width"}
@@ -19,7 +20,7 @@
         .main-wrapper__output__ragtime
           画面表示から撮影までの待ち時間/秒
           %input{name:"ragtime", type:"text", value:0}
-        .main-wrapper__output__agent#aaa
+        .main-wrapper__output__agent
           User Agent
           %input{name: "agent", type: "radio", value: "pc", checked:"checked"}
             PC
@@ -34,3 +35,6 @@
           %input{name: "name", type: "radio", value: "url"}
             URL名
         %input(type="submit" value="screen shots!!" class="form__submit")
+%footer
+  .hooter__github-link
+    = link_to 'GitHub', 'https://github.com/MakotoTakahashi19/various_screenshots'

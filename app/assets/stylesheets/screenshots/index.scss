@@ -7,19 +7,26 @@
     margin: 30px;
   }
 }
+
 .screenshots-index{
-  margin: 0 50px 50px;
+  margin: 10px 50px 50px;
   .main-wrapper{
     &__description{
       margin: 10px 0;
+    }
+    &__output__window{
+      margin-top:10px;
     }
     .form{
       &__textarea{
         width:100%;
       }
       &__submit{
-
       }
     }
   }
 }
+
+.hooter__github-link{
+    margin-left: 50px;
+  }
