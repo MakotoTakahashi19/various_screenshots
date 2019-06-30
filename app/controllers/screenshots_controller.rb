@@ -18,10 +18,8 @@ class ScreenshotsController < ApplicationController
         # UserAgent選択
         case params[:agent]
         when "pc" then
-          options.add_argument('headless')
-          options.add_argument('disable-gpu')
           caps = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {binary: "/app/.apt/usr/bin/google-chrome", args: ["--headless"]})
-          driver = Selenium::WebDriver.for :chrome, desired_capabilities: caps, options: options
+          driver = Selenium::WebDriver.for :chrome, desired_capabilities: caps
         when "iphone" then
           driver = Webdriver::UserAgent.driver(
           :browser     => :chrome,
