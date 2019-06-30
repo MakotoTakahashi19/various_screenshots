@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+複数のページのフルスクリーンショットが撮影できるアプリケーションです。
+スクリーンショット撮影後はzipファイルにてダウンロードします。
 
-Things you may want to cover:
+(現在、product環境のサーバ heroku にて Selenium が起動しないエラーを解決中)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+local環境でのdemo
