@@ -102,7 +102,7 @@ class ScreenshotsController < ApplicationController
           out.write(buffer)
           end
         rescue
-          redirect_to root_path
+          redirect_to root_path, error: "スクリーンショットに失敗しました"
         end
       end
       #送信
