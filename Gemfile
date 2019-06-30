@@ -38,7 +38,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :production do
-  gem 'unicorn', '5.4.1'
+  gem 'unicorn', '5.4.0'
 end
 
 group :development, :test do
