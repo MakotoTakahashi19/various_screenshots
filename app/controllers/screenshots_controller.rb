@@ -14,7 +14,7 @@ class ScreenshotsController < ApplicationController
         require 'selenium-webdriver'
         require 'webdriver-user-agent'
         require 'rmagick'
-
+        ENV['NO_PROXY']="127.0.0.1"
         # UserAgent選択
         case params[:agent]
         when "pc" then
